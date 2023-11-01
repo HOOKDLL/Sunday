@@ -86,7 +86,16 @@ int main(int argc, const char * argv[]) {
 //              返回vector数组 ⬅️= 1️⃣特征码,2️⃣起始位置 0x0000000000000000,3️⃣结束位置 0x7FFFFFFFFFFFFFFF,4️⃣控制搜索次数(0则为无限搜索到结束)
                 if (addr.size() != 0){
                     for (size_t i = 0; i < addr.size(); i++){
-                        NSLog(@"[+] 结果地址%zu: %p -> %s\n",i, (char*)(uintptr_t)addr[i], (char*)(uintptr_t)addr[i]);
+                        
+                        uintptr_t ptr = (uintptr_t)addr[i];
+                        unsigned char* bytePtr = (unsigned char*)ptr;
+                        int numBytes = 13; // 读取的字节数
+                        char hexString[numBytes * 2 + 1]; // 存储十六进制字符串的变量
+                        for (int i = 0; i < numBytes; i++) {// 读取指针地址指向的内容
+                            snprintf(hexString + (i * 2), 3, "%02X", *(bytePtr + i));
+                        }
+                        NSLog(@"[+] 结果地址%zu: %p 指针内存:-> %s -> %s\n",i, (char*)(uintptr_t)addr[i] ,hexString,(char*)(uintptr_t)addr[i]);
+                        
                     }
                     
                     //方式1
