@@ -1,0 +1,4 @@
+
+@interface Sunday: NSObject
+
+@end
