@@ -62,29 +62,31 @@ int main(int argc, const char * argv[]) {
                 
                 
 
-                const wchar_t* UTF16_FeatureCode = L"你好，世界！";//长度必须为2的倍数
-                size_t len = wcslen(UTF16_FeatureCode);
-                char* FeatureCode = (char*)malloc((len * 5 + 1) * sizeof(char)); // 预留足够的空间来存储转换后的结果
-                FeatureCode[0] = '\0'; // 初始化结果字符串为空
-                setlocale(LC_ALL, ""); // 设置本地化环境以支持宽字符转换
-                for (int i = 0; i < len; i++) {
-                    wchar_t swapped = ((UTF16_FeatureCode[i] & 0xFF) << 8) | ((UTF16_FeatureCode[i] & 0xFF00) >> 8);
-                    snprintf(FeatureCode + strlen(FeatureCode), (len * 5 + 1) - strlen(FeatureCode), "%04X", swapped); // 将转换后的结果拼接到结果字符串中
-                }
-                NSLog(@"[+] %s\n", FeatureCode);
-                //free(FeatureCode); // 释放动态分配的内存
+//                const wchar_t* UTF16_FeatureCode = L"你好，世界！";//长度必须为2的倍数
+//                size_t len = wcslen(UTF16_FeatureCode);
+//                char* FeatureCode = (char*)malloc((len * 5 + 1) * sizeof(char)); // 预留足够的空间来存储转换后的结果
+//                FeatureCode[0] = '\0'; // 初始化结果字符串为空
+//                setlocale(LC_ALL, ""); // 设置本地化环境以支持宽字符转换
+//                for (int i = 0; i < len; i++) {
+//                    wchar_t swapped = ((UTF16_FeatureCode[i] & 0xFF) << 8) | ((UTF16_FeatureCode[i] & 0xFF00) >> 8);
+//                    snprintf(FeatureCode + strlen(FeatureCode), (len * 5 + 1) - strlen(FeatureCode), "%04X", swapped); // 将转换后的结果拼接到结果字符串中
+//                }
+//                NSLog(@"[+] %s\n", FeatureCode);
+//                //free(FeatureCode); // 释放动态分配的内存
                 
-                //char FeatureCode[] = "Hello, World!";//长度必须为2的倍数
                 
-                //char FeatureCode[100] = "83 F? 1D 7?";//长度必须为2的倍数
                 
-                //char FeatureCode[] = "48 65 6C 6C 6F 2C 20 57 6F 72 6C 64 21";//长度必须为2的倍数
+//                char FeatureCode[] = "Hello, World!";//长度必须为2的倍数
+//
+//                char FeatureCode[100] = "83 F? 1D 7?";//长度必须为2的倍数
+                
+                char FeatureCode[] = "48 65 6C 6C 6F 2C 20 57 6F 72 6C 64 21";//长度必须为2的倍数
                        
                 std::vector<Sunday_int64> addr = X64dbgSundayFind(FeatureCode, StartAddr, StartEnd, 0);
-                //返回vector数组 ⬅️= 1️⃣特征码,2️⃣起始位置 0x0000000000000000,3️⃣结束位置 0x7FFFFFFFFFFFFFFF,4️⃣控制搜索次数(0则为无限搜索到结束)
+//              返回vector数组 ⬅️= 1️⃣特征码,2️⃣起始位置 0x0000000000000000,3️⃣结束位置 0x7FFFFFFFFFFFFFFF,4️⃣控制搜索次数(0则为无限搜索到结束)
                 if (addr.size() != 0){
                     for (size_t i = 0; i < addr.size(); i++){
-                        NSLog(@"[+] 结果地址%zu: %p -> %S\n",i, (char*)(uintptr_t)addr[i], (char*)(uintptr_t)addr[i]);
+                        NSLog(@"[+] 结果地址%zu: %p -> %s\n",i, (char*)(uintptr_t)addr[i], (char*)(uintptr_t)addr[i]);
                     }
                     
                     //方式1
