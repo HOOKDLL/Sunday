@@ -9,6 +9,12 @@
 #import "PatternFind.h"
 #import "Sunday.h"
 
+#ifdef DEBUG
+#define DebugLog(fmt, ...) NSLog((@"[DEBUG] " fmt), ##__VA_ARGS__)
+#else
+#define DebugLog(fmt, ...)
+#endif
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -19,8 +25,6 @@ int main(int argc, const char * argv[]) {
 }
 
 @implementation Sunday
-
-
 
 +(void)load {
     const char* imageName = _dyld_get_image_name(0);
@@ -37,27 +41,27 @@ int main(int argc, const char * argv[]) {
             //过滤想要的库
             if (strstr(image_name, "Sunday") != NULL) {
 
-                NSLog(@"[+] Image name %s at address 0x%llx and ASLR slide 0x%lx.\n\n",image_name, (mach_vm_address_t)mh, vmaddr_slide);
+                DebugLog(@"[+] Image name %s at address 0x%llx and ASLR slide 0x%lx.\n\n",image_name, (mach_vm_address_t)mh, vmaddr_slide);
 
                 unsigned long size1 = 0;
                 char *StartAddr_ = getsectdata("__TEXT", "__text", &size1);
                 char *StartAddr__ = StartAddr_ + vmaddr_slide;  //这才是真实要访问的地址。
-                NSLog(@"[+] $__TEXT$__text_start:%p\n", (void *)StartAddr_);
-                NSLog(@"[+] $__TEXT$__text_start + vmaddr_slide:%p\n", (void *)StartAddr__);
+                DebugLog(@"[+] $__TEXT$__text_start:%p\n", (void *)StartAddr_);
+                DebugLog(@"[+] $__TEXT$__text_start + vmaddr_slide:%p\n", (void *)StartAddr__);
                 uint64_t StartAddr = reinterpret_cast<uint64_t>(StartAddr__);
                 
                 unsigned long size2 = 0;
                 char *StartEnd_ = getsectdata("__DATA", "__bss", &size2);
                 char *StartEnd__ = StartEnd_ + vmaddr_slide;  //这才是真实要访问的地址。
-                NSLog(@"[+] $__DATA$__bss_end:%p\n", (void *)StartEnd_);
-                NSLog(@"[+] $__DATA$__bss_end + vmaddr_slide:%p\n", (void *)StartEnd__);
+                DebugLog(@"[+] $__DATA$__bss_end:%p\n", (void *)StartEnd_);
+                DebugLog(@"[+] $__DATA$__bss_end + vmaddr_slide:%p\n", (void *)StartEnd__);
                 uint64_t StartEnd = reinterpret_cast<uint64_t>(StartEnd__);
                 
                 
 #if defined (__arm64__)
-                NSLog(@"[+] runing arm64 64-bit [__arm64__ arch]\n");
+                DebugLog(@"[+] runing arm64 64-bit [__arm64__ arch]\n");
 #elif defined(__x86_64__)
-                NSLog(@"[+] runing x86_64 64-bit [__x86_64__ arch]\n");
+                DebugLog(@"[+] runing x86_64 64-bit [__x86_64__ arch]\n");
 #endif
                             
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,7 +74,7 @@ int main(int argc, const char * argv[]) {
 //                    wchar_t swapped = ((UTF16_FeatureCode[i] & 0xFF) << 8) | ((UTF16_FeatureCode[i] & 0xFF00) >> 8);
 //                    snprintf(FeatureCode + strlen(FeatureCode), (len * 5 + 1) - strlen(FeatureCode), "%04X", swapped); // 将转换后的结果拼接到结果字符串中
 //                }
-//                //NSLog(@"[+] %s\n", FeatureCode);
+//                //DebugLog(@"[+] %s\n", FeatureCode);
 //                //free(FeatureCode); // 释放动态分配的内存
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                char FeatureCode[] = "Hello, World!";//长度必须为2的倍数
@@ -91,7 +95,7 @@ int main(int argc, const char * argv[]) {
                         for (int i = 0; i < numBytes; i++) {// 读取指针地址指向的内容
                             snprintf(hexString + (i * 2), 3, "%02X", *(bytePtr + i));
                         }
-                        NSLog(@"[+] 结果地址%zu: %p 指针内存:-> %s -> %s\n",i, (char*)(uintptr_t)addr[i] ,hexString,(char*)(uintptr_t)addr[i]);
+                        DebugLog(@"[+] 结果地址%zu: %p 指针内存:-> %s -> %s\n",i, (char*)(uintptr_t)addr[i] ,hexString,(char*)(uintptr_t)addr[i]);
                         
                     }
                     
@@ -109,7 +113,7 @@ int main(int argc, const char * argv[]) {
                     abok = Patch_Code((void *)addr[0],(uint8_t *)PatchCodeStr,sizeof(PatchCodeStr));
                     
                     if (abok == true) {
-                        NSLog(@"[+] Patch Successfully : %d",abok);
+                        DebugLog(@"[+] Patch Successfully : %d",abok);
                     }else{
                         NSLog(@"[+] Patch Error : %d",abok);
                     }
