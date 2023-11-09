@@ -254,6 +254,13 @@ size_t patternfind(const unsigned char* data, size_t datasize, const std::vector
 
 static int emalloc_count = 0;
 
+//void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nobcf"))));
+void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nofla"))));
+//void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nosplit"))));
+//void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nosub"))));
+//void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("noindibr"))));
+//void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nostrenc"))));
+//void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nofw"))));
 void* emalloc(size_t size, const char* reason)
 {
     unsigned char* a = (unsigned char*)malloc(size);
@@ -272,6 +279,13 @@ void* emalloc(size_t size, const char* reason)
     return a;
 }
 
+//void efree(void* ptr, const char* reason) __attribute((__annotate__(("nobcf"))));
+void efree(void* ptr, const char* reason) __attribute((__annotate__(("nofla"))));
+//void efree(void* ptr, const char* reason) __attribute((__annotate__(("nosplit"))));
+//void efree(void* ptr, const char* reason) __attribute((__annotate__(("nosub"))));
+//void efree(void* ptr, const char* reason) __attribute((__annotate__(("noindibr"))));
+//void efree(void* ptr, const char* reason) __attribute((__annotate__(("nostrenc"))));
+//void efree(void* ptr, const char* reason) __attribute((__annotate__(("nofw"))));
 void efree(void* ptr, const char* reason)
 {
     emalloc_count--;
@@ -284,7 +298,15 @@ void efree(void* ptr, const char* reason)
     free(ptr);
 }
 
-char* convertStringToHex(char* value) {
+//char* convertStringToHex(char* value) __attribute((__annotate__(("nobcf"))));
+char* convertStringToHex(char* value) __attribute((__annotate__(("nofla"))));
+//char* convertStringToHex(char* value) __attribute((__annotate__(("nosplit"))));
+//char* convertStringToHex(char* value) __attribute((__annotate__(("nosub"))));
+//char* convertStringToHex(char* value) __attribute((__annotate__(("noindibr"))));
+//char* convertStringToHex(char* value) __attribute((__annotate__(("nostrenc"))));
+//char* convertStringToHex(char* value) __attribute((__annotate__(("nofw"))));
+char* convertStringToHex(char* value)
+{
     if (isHex(value[0])) {
         // 如果输入值已经是十六进制，则直接返回
         return value;
@@ -304,6 +326,13 @@ char* convertStringToHex(char* value) {
 }
 
 //新的
+//std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nobcf"))));
+std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nofla"))));
+//std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nosplit"))));
+//std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nosub"))));
+//std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("noindibr"))));
+//std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nostrenc"))));
+//std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nofw"))));
 std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind)
 {
     std::vector <Sunday_int64> SaveArray;
