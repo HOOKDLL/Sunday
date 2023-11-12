@@ -9,7 +9,7 @@
 #import "PatternFind.h"
 
 //static inline bool isHex(char ch) __attribute((__annotate__(("nobcf"))));
-static inline bool isHex(char ch) __attribute((__annotate__(("nofla"))));
+//static inline bool isHex(char ch) __attribute((__annotate__(("nofla"))));
 //static inline bool isHex(char ch) __attribute((__annotate__(("nosplit"))));
 //static inline bool isHex(char ch) __attribute((__annotate__(("nosub"))));
 //static inline bool isHex(char ch) __attribute((__annotate__(("noindibr"))));
@@ -21,7 +21,7 @@ static inline bool isHex(char ch)
 }
 
 //static inline std::string formathexpattern(const std::string & patterntext) __attribute((__annotate__(("nobcf"))));
-static inline std::string formathexpattern(const std::string & patterntext) __attribute((__annotate__(("nofla"))));
+//static inline std::string formathexpattern(const std::string & patterntext) __attribute((__annotate__(("nofla"))));
 //static inline std::string formathexpattern(const std::string & patterntext) __attribute((__annotate__(("nosplit"))));
 //static inline std::string formathexpattern(const std::string & patterntext) __attribute((__annotate__(("nosub"))));
 //static inline std::string formathexpattern(const std::string & patterntext) __attribute((__annotate__(("noindibr"))));
@@ -56,7 +56,7 @@ static inline int hexchtoint(char ch)
 }
 
 //bool patterntransform(const std::string & patterntext, std::vector<PatternByte> & pattern) __attribute((__annotate__(("nobcf"))));
-bool patterntransform(const std::string & patterntext, std::vector<PatternByte> & pattern) __attribute((__annotate__(("nofla"))));
+//bool patterntransform(const std::string & patterntext, std::vector<PatternByte> & pattern) __attribute((__annotate__(("nofla"))));
 //bool patterntransform(const std::string & patterntext, std::vector<PatternByte> & pattern) __attribute((__annotate__(("nosplit"))));
 //bool patterntransform(const std::string & patterntext, std::vector<PatternByte> & pattern) __attribute((__annotate__(("nosub"))));
 //bool patterntransform(const std::string & patterntext, std::vector<PatternByte> & pattern) __attribute((__annotate__(("noindibr"))));
@@ -102,7 +102,7 @@ bool patterntransform(const std::string & patterntext, std::vector<PatternByte> 
 
 
 //static inline bool patternmatchbyte(unsigned char byte, const PatternByte & pbyte) __attribute((__annotate__(("nobcf"))));
-static inline bool patternmatchbyte(unsigned char byte, const PatternByte & pbyte) __attribute((__annotate__(("nofla"))));
+//static inline bool patternmatchbyte(unsigned char byte, const PatternByte & pbyte) __attribute((__annotate__(("nofla"))));
 //static inline bool patternmatchbyte(unsigned char byte, const PatternByte & pbyte) __attribute((__annotate__(("nosplit"))));
 //static inline bool patternmatchbyte(unsigned char byte, const PatternByte & pbyte) __attribute((__annotate__(("nosub"))));
 //static inline bool patternmatchbyte(unsigned char byte, const PatternByte & pbyte) __attribute((__annotate__(("noindibr"))));
@@ -128,7 +128,7 @@ static inline bool patternmatchbyte(unsigned char byte, const PatternByte & pbyt
 }
 
 //size_t patternfind(const unsigned char* data, size_t datasize, unsigned char* pattern, size_t patternsize) __attribute((__annotate__(("nobcf"))));
-size_t patternfind(const unsigned char* data, size_t datasize, unsigned char* pattern, size_t patternsize) __attribute((__annotate__(("nofla"))));
+//size_t patternfind(const unsigned char* data, size_t datasize, unsigned char* pattern, size_t patternsize) __attribute((__annotate__(("nofla"))));
 //size_t patternfind(const unsigned char* data, size_t datasize, unsigned char* pattern, size_t patternsize) __attribute((__annotate__(("nosplit"))));
 //size_t patternfind(const unsigned char* data, size_t datasize, unsigned char* pattern, size_t patternsize) __attribute((__annotate__(("nosub"))));
 //size_t patternfind(const unsigned char* data, size_t datasize, unsigned char* pattern, size_t patternsize) __attribute((__annotate__(("noindibr"))));
@@ -156,7 +156,7 @@ size_t patternfind(const unsigned char* data, size_t datasize, unsigned char* pa
 }
 
 //static inline void patternwritebyte(unsigned char* byte, const PatternByte & pbyte) __attribute((__annotate__(("nobcf"))));
-static inline void patternwritebyte(unsigned char* byte, const PatternByte & pbyte) __attribute((__annotate__(("nofla"))));
+//static inline void patternwritebyte(unsigned char* byte, const PatternByte & pbyte) __attribute((__annotate__(("nofla"))));
 //static inline void patternwritebyte(unsigned char* byte, const PatternByte & pbyte) __attribute((__annotate__(("nosplit"))));
 //static inline void patternwritebyte(unsigned char* byte, const PatternByte & pbyte) __attribute((__annotate__(("nosub"))));
 //static inline void patternwritebyte(unsigned char* byte, const PatternByte & pbyte) __attribute((__annotate__(("noindibr"))));
@@ -174,7 +174,7 @@ static inline void patternwritebyte(unsigned char* byte, const PatternByte & pby
 }
 
 //void patternwrite(unsigned char* data, size_t datasize, const char* pattern) __attribute((__annotate__(("nobcf"))));
-void patternwrite(unsigned char* data, size_t datasize, const char* pattern) __attribute((__annotate__(("nofla"))));
+//void patternwrite(unsigned char* data, size_t datasize, const char* pattern) __attribute((__annotate__(("nofla"))));
 //void patternwrite(unsigned char* data, size_t datasize, const char* pattern) __attribute((__annotate__(("nosplit"))));
 //void patternwrite(unsigned char* data, size_t datasize, const char* pattern) __attribute((__annotate__(("nosub"))));
 //void patternwrite(unsigned char* data, size_t datasize, const char* pattern) __attribute((__annotate__(("noindibr"))));
@@ -194,7 +194,7 @@ void patternwrite(unsigned char* data, size_t datasize, const char* pattern)
 }
 
 //bool patternsnr(unsigned char* data, size_t datasize, const char* searchpattern, const char* replacepattern) __attribute((__annotate__(("nobcf"))));
-bool patternsnr(unsigned char* data, size_t datasize, const char* searchpattern, const char* replacepattern) __attribute((__annotate__(("nofla"))));
+//bool patternsnr(unsigned char* data, size_t datasize, const char* searchpattern, const char* replacepattern) __attribute((__annotate__(("nofla"))));
 //bool patternsnr(unsigned char* data, size_t datasize, const char* searchpattern, const char* replacepattern) __attribute((__annotate__(("nosplit"))));
 //bool patternsnr(unsigned char* data, size_t datasize, const char* searchpattern, const char* replacepattern) __attribute((__annotate__(("nosub"))));
 //bool patternsnr(unsigned char* data, size_t datasize, const char* searchpattern, const char* replacepattern) __attribute((__annotate__(("noindibr"))));
@@ -226,7 +226,7 @@ size_t patternfind(const unsigned char* data, size_t datasize, const char* patte
 }
 
 //size_t patternfind(const unsigned char* data, size_t datasize, const std::vector<PatternByte> & pattern) __attribute((__annotate__(("nobcf"))));
-size_t patternfind(const unsigned char* data, size_t datasize, const std::vector<PatternByte> & pattern) __attribute((__annotate__(("nofla"))));
+//size_t patternfind(const unsigned char* data, size_t datasize, const std::vector<PatternByte> & pattern) __attribute((__annotate__(("nofla"))));
 //size_t patternfind(const unsigned char* data, size_t datasize, const std::vector<PatternByte> & pattern) __attribute((__annotate__(("nosplit"))));
 //size_t patternfind(const unsigned char* data, size_t datasize, const std::vector<PatternByte> & pattern) __attribute((__annotate__(("nosub"))));
 //size_t patternfind(const unsigned char* data, size_t datasize, const std::vector<PatternByte> & pattern) __attribute((__annotate__(("noindibr"))));
@@ -255,7 +255,7 @@ size_t patternfind(const unsigned char* data, size_t datasize, const std::vector
 static int emalloc_count = 0;
 
 //void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nobcf"))));
-void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nofla"))));
+//void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nofla"))));
 //void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nosplit"))));
 //void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("nosub"))));
 //void* emalloc(size_t size, const char* reason) __attribute((__annotate__(("noindibr"))));
@@ -299,7 +299,7 @@ void efree(void* ptr, const char* reason)
 }
 
 //char* convertStringToHex(char* value) __attribute((__annotate__(("nobcf"))));
-char* convertStringToHex(char* value) __attribute((__annotate__(("nofla"))));
+//char* convertStringToHex(char* value) __attribute((__annotate__(("nofla"))));
 //char* convertStringToHex(char* value) __attribute((__annotate__(("nosplit"))));
 //char* convertStringToHex(char* value) __attribute((__annotate__(("nosub"))));
 //char* convertStringToHex(char* value) __attribute((__annotate__(("noindibr"))));
@@ -327,7 +327,7 @@ char* convertStringToHex(char* value)
 
 //新的
 //std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nobcf"))));
-std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nofla"))));
+//std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nofla"))));
 //std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nosplit"))));
 //std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("nosub"))));
 //std::vector <Sunday_int64> X64dbgSundayFind(char* Value, Sunday_int64 Start, Sunday_int64 End, size_t maxFind) __attribute((__annotate__(("noindibr"))));
