@@ -41,20 +41,20 @@ int main(int argc, const char * argv[]) {
             //过滤想要的库
             if (strstr(image_name, "Sunday") != NULL) {
 
-                DebugLog(@"[+] Image name %s at address 0x%llx and ASLR slide 0x%lx.\n\n",image_name, (mach_vm_address_t)mh, vmaddr_slide);
+                DebugLog(@"[+] Image name %s at address 0x%llx and ASLR slide 0x%lx.\n",image_name, (mach_vm_address_t)mh, vmaddr_slide);
 
-                unsigned long size1 = 0;
-                char *StartAddr_ = getsectdata("__TEXT", "__text", &size1);
-                char *StartAddr__ = StartAddr_ + vmaddr_slide;  //这才是真实要访问的地址。
-                DebugLog(@"[+] $__TEXT$__text_start:%p\n", (void *)StartAddr_);
+                uint64_t size1 = 0;
+                char *referencesSection1 = getsectdatafromheader_64((struct mach_header_64 *)mh,"__TEXT", "__text", &size1);
+                DebugLog(@"[+] getsectdatafromheader_64$__TEXT$__text:%p\n", (void *)referencesSection1);
+                char *StartAddr__ = referencesSection1 + vmaddr_slide;  //这才是真实要访问的地址。
                 DebugLog(@"[+] $__TEXT$__text_start + vmaddr_slide:%p\n", (void *)StartAddr__);
                 uint64_t StartAddr = reinterpret_cast<uint64_t>(StartAddr__);
                 
-                unsigned long size2 = 0;
-                char *StartEnd_ = getsectdata("__DATA", "__bss", &size2);
-                char *StartEnd__ = StartEnd_ + vmaddr_slide;  //这才是真实要访问的地址。
-                DebugLog(@"[+] $__DATA$__bss_end:%p\n", (void *)StartEnd_);
-                DebugLog(@"[+] $__DATA$__bss_end + vmaddr_slide:%p\n", (void *)StartEnd__);
+                uint64_t size2 = 0;
+                char *referencesSection2 = getsectdatafromheader_64((struct mach_header_64 *)mh,"__DATA", "__data", &size2);
+                DebugLog(@"[+] getsectdatafromheader_64$__DATA$__data:%p\n", (void *)referencesSection2);
+                char *StartEnd__ = referencesSection2 + vmaddr_slide;  //这才是真实要访问的地址。
+                DebugLog(@"[+] $__DATA$__data_end + vmaddr_slide:%p\n", (void *)StartEnd__);
                 uint64_t StartEnd = reinterpret_cast<uint64_t>(StartEnd__);
                 
                 
