@@ -112,13 +112,14 @@ int main(int argc, const char * argv[]) {
                         DebugLog(@"[+] Patch Successfully : %d",abok);
                     }else{
                         NSLog(@"[+] Patch Error : %d",abok);
+                        break;
                     }
 
                     break;
                     
                 }else{
                     NSLog(@"[+] 没有搜索到条目\n\n");
-                    break;
+                    //break;
                 }
             }
         }
