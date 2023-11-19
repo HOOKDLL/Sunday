@@ -13,12 +13,12 @@
 #import <mach-o/dyld.h>
 #import <mach-o/getsect.h>
 #import <mach-o/ldsyms.h>
-#import <objc/message.h>
 #import <mach-o/loader.h>
 #import <mach/mach_vm.h>
+#import <objc/message.h>
 #import <objc/runtime.h>
-#include <dlfcn.h>
 #include <libkern/OSCacheControl.h>
+#include <dlfcn.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,9 +32,8 @@
 #include <sstream>
 #include <iomanip>
 #include <codecvt>
-#include <iomanip>
 
-#define    Sunday_int64 uint64_t
+#define  Sunday_int64 uint64_t
 
 void* emalloc(size_t size, const char* reason = "emalloc:???");
 void efree(void* ptr, const char* reason = "efree:???");
