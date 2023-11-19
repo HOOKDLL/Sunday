@@ -27,13 +27,9 @@ int main(int argc, const char * argv[]) {
 @implementation Sunday
 
 +(void)load {
-    const char* imageName = _dyld_get_image_name(0);
-    if (strstr(imageName, "libBacktraceRecording.dylib") == NULL) {
-        return ;
-    }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //遍历自身加载的dylib－－获取载入地址和ASLR地址等
-        //NSLog(@"[+] Dyld image count is: %d.\n", _dyld_image_count());
+        DebugLog(@"[+] Dyld image count is: %d.\n", _dyld_image_count());
         for (int i = 0; i < _dyld_image_count(); i++) {
             char *image_name = (char *)_dyld_get_image_name(i);
             const struct mach_header *mh = _dyld_get_image_header(i);
