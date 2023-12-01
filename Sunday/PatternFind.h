@@ -2,7 +2,7 @@
 //  PatternFind.h
 //  Sunday
 //
-//  Created by 丘远冲 on 2023/10/30.
+//  Created by qyc on 2023/10/30.
 //
 
 #ifndef PatternFind_h
